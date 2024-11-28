@@ -28,7 +28,7 @@ pipeline {
         stage('File System Scan') {
             steps {
                 echo 'Trivy Scan Started'
-                sh 'trivy fs --format table -output trivy-fs-output.html .'
+                sh 'trivy fs --format table --output trivy-fs-output.html .'
                 echo 'Trivy Scan Finished'
             }
         }
