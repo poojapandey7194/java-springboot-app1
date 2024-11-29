@@ -32,5 +32,13 @@ pipeline {
                 echo 'Trivy Scan Finished'
             }
         }
+        stage ('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('sonar') {
+                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=BoardGame -Dsonar.projectKey=BoardGame \
+                    -Dsonar.java.binaries=. -Dsonar.exclusions=**/trivy-image-report.html'''
+                }
+            }
+        }
     }
 }
