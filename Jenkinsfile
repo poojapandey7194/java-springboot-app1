@@ -49,6 +49,7 @@ pipeline {
                 timeout(time: 3, unit: 'MINUTES') {
                 waitForQualityGate abortPipeline: true, credentialsId: 'sonar'
                 }
+              }
             }
         }
     }
