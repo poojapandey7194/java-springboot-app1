@@ -16,5 +16,12 @@ pipeline {
                 echo 'Maven Compile Finished'
             }
         }
+        stage('Maven test') {
+            steps {
+                echo 'Maven test Started'
+                sh 'mvn test'
+                echo 'Maven test Finished'
+            }
+        }
     }
 }
